@@ -1,3 +1,3 @@
 import { ChainId } from 'config/chains'
 
-export const SUPPORTED_CHAINS = [ChainId.ETHEREUM, ChainId.BSC_TESTNET]
+export const SUPPORTED_CHAINS = [ChainId.ETHEREUM]

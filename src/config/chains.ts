@@ -2,17 +2,15 @@ import memoize from 'lodash/memoize'
 
 import {
   Chain,
-  pulsechain
+  bscTestnet
 } from 'wagmi/chains'
 
 export enum ChainId {
-  ETHEREUM = 369,
-  BSC_TESTNET = 97
+  ETHEREUM = 97,
 }
 
 export const CHAIN_QUERY_NAME: Record<ChainId, string> = {
-  [ChainId.ETHEREUM]: 'pulse',
-  [ChainId.BSC_TESTNET]: 'bsc_testnet'
+  [ChainId.ETHEREUM]: 'bsc-testnet',
 }
 
 const CHAIN_QUERY_NAME_TO_ID = Object.entries(CHAIN_QUERY_NAME).reduce((acc, [chainId, chainName]) => {
@@ -23,18 +21,13 @@ const CHAIN_QUERY_NAME_TO_ID = Object.entries(CHAIN_QUERY_NAME).reduce((acc, [ch
 }, {} as Record<string, ChainId>)
 
 export const CHAINS: [Chain, ...Chain[]] = [
-  pulsechain
+  bscTestnet
 ]
 
 export const PUBLIC_NODES: Record<ChainId, string[] | readonly string[]> = {
   [ChainId.ETHEREUM]: [
-    ...pulsechain.rpcUrls.default.http,
-    // 'https://ethereum.publicnode.com',
-    // 'https://eth.llamarpc.com',
+    ...bscTestnet.rpcUrls.default.http,
   ],
-  [ChainId.BSC_TESTNET]: [
-    'https://data-seed-prebsc-1-s1.binance.org:8545',
-  ]
 }
 
 export const getChainId = memoize((chainName: string) => {

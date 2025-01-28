@@ -96,7 +96,7 @@ export const SwapCommitButton = memo(function SwapCommitButton({
     [Field.OUTPUT]: relevantTokenBalances[1],
   }
   // check whether the user has approved the router on the input token
-  const {approvalState : approval, approveCallback} = useApproveCallback(amountToApprove, routerAddress)
+  const { approvalState: approval, approveCallback } = useApproveCallback(amountToApprove, routerAddress)
   const { priceImpactWithoutFee } = useMemo(() => !showWrap ? computeTradePriceBreakdown(trade) : {}, [showWrap, trade])
   const swapInputError = useSwapInputError(trade, currencyBalances)
   const parsedAmounts = useParsedAmounts(trade, currencyBalances, showWrap)
@@ -253,7 +253,7 @@ export const SwapCommitButton = memo(function SwapCommitButton({
 
   if (showWrap) {
     return (
-      <CommitButton width="100%" disabled={Boolean(wrapInputError)} onClick={onWrap}>
+      <CommitButton width="100%" disabled={Boolean(wrapInputError)} onClick={onWrap} height="58px">
         {wrapInputError ?? (wrapType === WrapType.WRAP ? 'Wrap' : wrapType === WrapType.UNWRAP ? 'Unwrap' : null)}
       </CommitButton>
     )
@@ -268,8 +268,8 @@ export const SwapCommitButton = memo(function SwapCommitButton({
   if (noRoute && userHasSpecifiedInputOutput && !tradeLoading) {
     return (
       <AutoColumn gap="12px">
-        <GreyCard style={{ textAlign: 'center', padding: '0.75rem' }}>
-          <Text color="textSubtle">Insufficient liquidity for this trade.</Text>
+        <GreyCard style={{ textAlign: 'center', padding: '0.75rem', height: '58px' }}>
+          <Text color="textSubtle" style={{ marginTop: '4px' }}>Insufficient liquidity for this trade.</Text>
         </GreyCard>
         {/* {isRoutingSettingChange && (
           <Message variant="warning" icon={<></>}>
@@ -346,8 +346,8 @@ export const SwapCommitButton = memo(function SwapCommitButton({
             (priceImpactSeverity > 3 && !isExpertMode
               ? 'Price Impact High'
               : priceImpactSeverity > 2
-              ? 'Swap Anyway'
-              : 'Swap')}
+                ? 'Swap Anyway'
+                : 'Swap')}
         </CommitButton>
       </RowBetween>
       <Column style={{ marginTop: '1rem' }}>
@@ -376,8 +376,8 @@ export const SwapCommitButton = memo(function SwapCommitButton({
           (priceImpactSeverity > 3 && !isExpertMode
             ? 'Price Impact Too High'
             : priceImpactSeverity > 2
-            ? 'Swap Anyway'
-            : 'Swap')}
+              ? 'Swap Anyway'
+              : 'Swap')}
       </CommitButton>
 
       {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}

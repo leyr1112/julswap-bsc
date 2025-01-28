@@ -52,7 +52,6 @@ export const ASSET_CDN = 'https://assets.pancakeswap.finance'
 
 export const V3_SUBGRAPH_URLS = {
   [ChainId.ETHEREUM]: 'https://piston.press/subgraphs/name/camelswap/exchange-v3',
-  [ChainId.BSC_TESTNET]: '',
 } satisfies Record<ChainId, string | null>
 
 export const TRADING_REWARD_API = 'https://pancake-trading-fee-rebate-api.pancakeswap.com/api/v1'

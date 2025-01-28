@@ -49,8 +49,8 @@ export default function CommonBases({
   onSelect: (currency: Currency) => void
 }) {
   const native = useNativeCurrency()
-  const FIRST_LINE = chainId ? [SUGGESTED_BASES[chainId][0], SUGGESTED_BASES[chainId][1]] : []
-  const SECOND_LINE_ETH = chainId ? [SUGGESTED_BASES[chainId][2], SUGGESTED_BASES[chainId][3], SUGGESTED_BASES[chainId][4]] : []
+  const FIRST_LINE = chainId ? [SUGGESTED_BASES[chainId][0], SUGGESTED_BASES[chainId][3]] : []
+  // const SECOND_LINE_ETH = chainId ? [SUGGESTED_BASES[chainId][1], SUGGESTED_BASES[chainId][3], SUGGESTED_BASES[chainId][4]] : []
   // const THIRD_LINE = chainId ? [SUGGESTED_BASES[chainId][6], SUGGESTED_BASES[chainId][7]] : []
 
   const isNativeSelected = selectedCurrency?.equals(native)
@@ -76,7 +76,7 @@ export default function CommonBases({
           )
         })}
       </RowWrapper>
-      <RowWrapper>
+      {/* <RowWrapper>
         {(chainId ? SECOND_LINE_ETH || [] : []).map((token: Token) => {
           const selected = selectedCurrency?.equals(token)
           return (
@@ -88,7 +88,7 @@ export default function CommonBases({
             </ButtonWrapper>
           )
         })}
-      </RowWrapper>
+      </RowWrapper> */}
       {/* <RowWrapper>
         {(chainId ? THIRD_LINE || [] : []).map((token: Token) => {
           const selected = selectedCurrency?.equals(token)

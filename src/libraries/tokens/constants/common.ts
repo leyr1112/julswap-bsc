@@ -20,8 +20,8 @@ export const USDC_ETH = new ERC20Token(
 
 export const USDT_ETH = new ERC20Token(
   ChainId.ETHEREUM,
-  '0x0Cb6F5a34ad42ec934882A05265A7d5F59b51A2f',
-  6,
+  '0x337610d27c682E347C9cD60BD4b3b107C9d34dDd',
+  18,
   'USDT',
   'Tether USD from Ethereum',
   'https://tether.to/',

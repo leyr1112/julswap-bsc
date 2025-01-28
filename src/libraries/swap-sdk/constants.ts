@@ -19,10 +19,10 @@ export const INIT_CODE_HASH_MAP: Record<number, `0x${string}`> = {
 export const WETH9 = {
   [ChainId.ETHEREUM]: new ERC20Token(
     ChainId.ETHEREUM,
-    '0xA1077a294dDE1B09bB078844df40758a5D0f9a27',
+    '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
     18,
-    'WPLS',
-    'Wrapped Pulse',
+    'WBNB',
+    'Wrapped BNB',
     ''
   ),
 }
@@ -39,5 +39,5 @@ export const NATIVE: Record<
     decimals: number
   }
 > = {
-  [ChainId.ETHEREUM]: { name: 'Pulse', symbol: 'PLS', decimals: 18 },
+  [ChainId.ETHEREUM]: { name: 'BNB', symbol: 'BNB', decimals: 18 },
 }
