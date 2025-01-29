@@ -10,5 +10,5 @@ export const MIN_BNB: bigint = BIG_INT_TEN ** 16n // .01 BNB
 export const BETTER_TRADE_LESS_HOPS_THRESHOLD = new Percent(50n, BIPS_BASE)
 
 export const CHAIN_ID_TO_CHAIN_NAME = {
-  [ChainId.ETHEREUM]: 'pulse',
+  [ChainId.ETHEREUM]: 'bsc-testnet',
 } satisfies Record<ChainId, string>

@@ -110,6 +110,7 @@ function V3SwapForm() {
     () => typedValue && (isTypingInput ? formatAmount(outputAmount) || '' : typedValue),
     [typedValue, isTypingInput, outputAmount],
   )
+
   const inputLoading = typedValue ? !isTypingInput && isLoading : false
   const outputLoading = typedValue ? isTypingInput && isLoading : false
 
