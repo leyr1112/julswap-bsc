@@ -124,13 +124,13 @@ const NetworkSelect: React.FC<{ chainId: ChainId; switchNetwork: (chainId: numbe
           key={chain.id}
           style={{ justifyContent: 'flex-start' }}
           onClick={() => {
-            if (chain.id !== chainId) switchNetwork(chain.id)
+            // if (chain.id !== chainId) switchNetwork(chain.id)
           }}
         >
           <ChainLogo chainId={chain.id} />
-          <Text color={chain.id === chainId ? 'secondary' : 'text'} bold={chain.id === chainId} pl="12px">
+          {/* <Text color={chain.id === chainId ? 'secondary' : 'text'} bold={chain.id === chainId} pl="12px">
             {chain.name}
-          </Text>
+          </Text> */}
         </UserMenuItem>
       ))}
     </>

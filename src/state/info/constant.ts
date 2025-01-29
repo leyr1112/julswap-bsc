@@ -34,7 +34,6 @@ export const multiChainId: Record<MultiChainName, ChainId> = {
 
 export const multiChainPaths = {
   [ChainId.ETHEREUM]: '/pulse',
-  369: '/pulse'
 }
 
 export const multiChainQueryClient = {
