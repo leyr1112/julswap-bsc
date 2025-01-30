@@ -52,6 +52,7 @@ export function useTransactionAdder(): (
       if (!chainId) return
 
       let hash: any
+      if (!response) return
 
       if ('hash' in response) {
         // eslint-disable-next-line prefer-destructuring

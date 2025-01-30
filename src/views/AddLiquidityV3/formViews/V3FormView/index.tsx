@@ -51,6 +51,7 @@ import { getViemClients } from 'utils/viem'
 import { calculateGasMargin } from 'utils'
 
 import { ZoomLevels, ZOOM_LEVELS } from 'components/LiquidityChartRangeInput/types'
+import { useToast } from 'contexts'
 import RangeSelector from './components/RangeSelector'
 import { PositionPreview } from './components/PositionPreview'
 import RateToggle from './components/RateToggle'
@@ -176,6 +177,7 @@ export default function V3FormView({
   }, [feeAmount])
 
   const onAddLiquidityCallback = useV3FormAddLiquidityCallback()
+  const { toastError } = useToast()
 
   // txn values
   const deadline = useTransactionDeadline() // custom from users settings
@@ -200,8 +202,8 @@ export default function V3FormView({
 
   const nftPositionManagerAddress = useV3NFTPositionManagerContract()?.address
   // check whether the user has approved the router on the tokens
-  const {approvalState: approvalA, approveCallback: approveACallback} = useApproveCallback(parsedAmounts[Field.CURRENCY_A], nftPositionManagerAddress)
-  const {approvalState: approvalB, approveCallback: approveBCallback} = useApproveCallback(parsedAmounts[Field.CURRENCY_B], nftPositionManagerAddress)
+  const { approvalState: approvalA, approveCallback: approveACallback } = useApproveCallback(parsedAmounts[Field.CURRENCY_A], nftPositionManagerAddress)
+  const { approvalState: approvalB, approveCallback: approveBCallback } = useApproveCallback(parsedAmounts[Field.CURRENCY_B], nftPositionManagerAddress)
 
   const [allowedSlippage] = useUserSlippage() // custom from users
 
@@ -250,7 +252,7 @@ export default function V3FormView({
               )
 
               setAttemptingTxn(false)
-              addTransaction({hash: response}, {
+              addTransaction({ hash: response }, {
                 type: 'add-liquidity-v3',
                 summary: `Add ${baseAmount} ${baseCurrency?.symbol} and ${quoteAmount} ${quoteCurrency?.symbol}`,
               })
@@ -268,6 +270,7 @@ export default function V3FormView({
         })
         .catch((reason) => {
           console.error("failed to estimate gas", reason)
+          toastError('Error', reason.message.includes('white list') ? 'You are not on the whitelist!' : 'Unexpected error!')
           setAttemptingTxn(false)
           if (!isUserRejected(reason)) {
             console.error(reason)
@@ -290,6 +293,7 @@ export default function V3FormView({
     quoteCurrency,
     sendTransactionAsync,
     signer,
+    toastError
   ])
 
   const handleDismissConfirmation = useCallback(() => {

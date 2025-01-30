@@ -42,8 +42,8 @@ import { V3SubmitButton } from './components/V3SubmitButton'
 import { useV3FormState } from './formViews/V3FormView/form/reducer'
 
 export const BodyWrapper = styled(Card)`
-  background: ${({theme}) => theme.colors.background};
-  border: 1px solid ${({theme}) => theme.colors.backgroundAlt};
+  background: ${({ theme }) => theme.colors.background};
+  border: 1px solid ${({ theme }) => theme.colors.backgroundAlt};
   border-radius: 24px;
   padding: 4px 12px;
   max-width: 464px;
@@ -145,8 +145,8 @@ export default function IncreaseLiquidityV3({ currencyA: baseCurrency, currencyB
   const manager = isStakedInMCv3 ? masterchefV3 : positionManager
   const interfaceManager = NonfungiblePositionManager
 
-  const {approvalState: approvalA, approveCallback: approveACallback} = useApproveCallback(parsedAmounts[Field.CURRENCY_A], manager?.address)
-  const {approvalState: approvalB, approveCallback: approveBCallback} = useApproveCallback(parsedAmounts[Field.CURRENCY_B], manager?.address)
+  const { approvalState: approvalA, approveCallback: approveACallback } = useApproveCallback(parsedAmounts[Field.CURRENCY_A], manager?.address)
+  const { approvalState: approvalB, approveCallback: approveBCallback } = useApproveCallback(parsedAmounts[Field.CURRENCY_B], manager?.address)
 
   // we need an existence check on parsed amounts for single-asset deposits
   const showApprovalA = approvalA !== ApprovalState.APPROVED && !!parsedAmounts[Field.CURRENCY_A]
@@ -164,18 +164,18 @@ export default function IncreaseLiquidityV3({ currencyA: baseCurrency, currencyB
       const { calldata, value } =
         hasExistingPosition && tokenId
           ? interfaceManager.addCallParameters(position, {
-              tokenId,
-              slippageTolerance: basisPointsToPercent(allowedSlippage),
-              deadline: deadline[0]?.toString() ?? "0",
-              useNative,
-            })
+            tokenId,
+            slippageTolerance: basisPointsToPercent(allowedSlippage),
+            deadline: deadline[0]?.toString() ?? "0",
+            useNative,
+          })
           : interfaceManager.addCallParameters(position, {
-              slippageTolerance: basisPointsToPercent(allowedSlippage),
-              recipient: account,
-              deadline: deadline[0]?.toString() ?? "0",
-              useNative,
-              createPool: noLiquidity,
-            })
+            slippageTolerance: basisPointsToPercent(allowedSlippage),
+            recipient: account,
+            deadline: deadline[0]?.toString() ?? "0",
+            useNative,
+            createPool: noLiquidity,
+          })
 
       setAttemptingTxn(true)
       getViemClients({ chainId })
@@ -209,10 +209,10 @@ export default function IncreaseLiquidityV3({ currencyA: baseCurrency, currencyB
 
           setAttemptingTxn(false)
           addTransaction({ hash: response },
-          {
-            type: 'increase-liquidity-v3',
-            summary: `Increase ${baseAmount} ${baseCurrency?.symbol} and ${quoteAmount} ${quoteCurrency?.symbol}`,
-          })
+            {
+              type: 'increase-liquidity-v3',
+              summary: `Increase ${baseAmount} ${baseCurrency?.symbol} and ${quoteAmount} ${quoteCurrency?.symbol}`,
+            })
           setTxHash(response)
         })
         .catch((error) => {
@@ -224,8 +224,7 @@ export default function IncreaseLiquidityV3({ currencyA: baseCurrency, currencyB
           }
         })
     }
-  }, [
-    account,
+  }, [account,
     addTransaction,
     allowedSlippage,
     baseCurrency,
@@ -241,7 +240,7 @@ export default function IncreaseLiquidityV3({ currencyA: baseCurrency, currencyB
     quoteCurrency,
     sendTransactionAsync,
     tokenId,
-    tokenIdsInMCv3Loading,
+    tokenIdsInMCv3Loading
   ])
 
   // const addIsUnsupported = useIsTransactionUnsupported(currencies?.CURRENCY_A, currencies?.CURRENCY_B)
@@ -256,11 +255,9 @@ export default function IncreaseLiquidityV3({ currencyA: baseCurrency, currencyB
     }
   }, [onFieldAInput, router, txHash])
 
-  const pendingText = `Supplying ${
-    !depositADisabled ? formatCurrencyAmount(parsedAmounts[Field.CURRENCY_A], 4, "en-US") : ''
-  } ${!depositADisabled ? currencies[Field.CURRENCY_A]?.symbol : ''} ${!outOfRange ? 'and' : ''} ${
-    !depositBDisabled ? formatCurrencyAmount(parsedAmounts[Field.CURRENCY_B], 4, "en-US") : ''
-  } ${!depositBDisabled ? currencies[Field.CURRENCY_B]?.symbol : ''}`
+  const pendingText = `Supplying ${!depositADisabled ? formatCurrencyAmount(parsedAmounts[Field.CURRENCY_A], 4, "en-US") : ''
+    } ${!depositADisabled ? currencies[Field.CURRENCY_A]?.symbol : ''} ${!outOfRange ? 'and' : ''} ${!depositBDisabled ? formatCurrencyAmount(parsedAmounts[Field.CURRENCY_B], 4, "en-US") : ''
+    } ${!depositBDisabled ? currencies[Field.CURRENCY_B]?.symbol : ''}`
 
   const [onPresentIncreaseLiquidityModal] = useModal(
     <TransactionConfirmationModal

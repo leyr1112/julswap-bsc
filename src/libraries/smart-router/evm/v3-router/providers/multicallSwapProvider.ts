@@ -13,7 +13,7 @@ import {
 } from './multicallProvider'
 
 const PANCAKE_MULTICALL_ADDRESSES = {
-  [ChainId.ETHEREUM]: '0x5f768beF4Ba69D37bf742803702D397f99E8DFAc',
+  [ChainId.ETHEREUM]: '0xeeF6ff30cF5D5b8aBA0DE16A01d17A0697a275b5',
 } as const satisfies Record<ChainId, Address>
 
 export type PancakeMulticallConfig = {

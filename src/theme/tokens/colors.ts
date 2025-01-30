@@ -1,6 +1,6 @@
 export const baseColors = {
   white: "white",
-  failure: "#272425",
+  failure: "#aea1b3",
   failure33: "#ED4B9E33",
   primary: "#ffffff",
   primary0f: "#FFAC260f",
