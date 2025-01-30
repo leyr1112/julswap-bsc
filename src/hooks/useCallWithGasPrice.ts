@@ -43,27 +43,22 @@ export function useCallWithGasPrice() {
         } as unknown as EstimateContractGasParameters)
       }
 
+      const res = await walletClient.writeContract({
+        abi: contract.abi,
+        address: contract.address,
+        account: walletClient.account,
+        functionName: methodName,
+        args: methodArgs,
+        gasPrice,
+        // for some reason gas price is insamely high when using maxuint approval, so commenting out for now
+        gas: calculateGasMargin(gas),
+        value: 0n,
+        ...overrides_,
+      } as unknown as WriteContractParameters)
+      const hash = res
 
-      try {
-        const res = await walletClient.writeContract({
-          abi: contract.abi,
-          address: contract.address,
-          account: walletClient.account,
-          functionName: methodName,
-          args: methodArgs,
-          gasPrice,
-          // for some reason gas price is insamely high when using maxuint approval, so commenting out for now
-          gas: calculateGasMargin(gas),
-          value: 0n,
-          ...overrides_,
-        } as unknown as WriteContractParameters)
-        const hash = res
-
-        return {
-          hash,
-        }
-      } catch (e: any) {
-        console.error(e)
+      return {
+        hash,
       }
     },
     [chainId, gasPrice, walletClient],
