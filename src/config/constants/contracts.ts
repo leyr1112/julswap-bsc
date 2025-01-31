@@ -8,7 +8,7 @@ export default {
     [ChainId.ETHEREUM]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   },
   nftPositionManager: {
-    [ChainId.ETHEREUM]: '0x69c8aDa232B77834235541699F25c95479C1Bbb1',
+    [ChainId.ETHEREUM]: '0xda71B2ce0A0e0Beb2A393A5fcB462ba244aEB6dE',
   },
   masterChefV3: {
     [ChainId.ETHEREUM]: '0x556B9306565093C855AEA9AE92A594704c2Cd59e',
