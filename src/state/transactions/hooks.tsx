@@ -57,6 +57,7 @@ export function useTransactionAdder(): (
       if ('hash' in response) {
         // eslint-disable-next-line prefer-destructuring
         hash = response.hash
+        if (hash === '0x') return
       } else if ('transactionHash' in response) {
         hash = response.transactionHash
       }

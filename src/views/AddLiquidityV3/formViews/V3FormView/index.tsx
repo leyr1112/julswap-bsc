@@ -552,7 +552,7 @@ export default function V3FormView({
                     </Text>
                   </AutoRow>
                 )}
-                <LiquidityChartRangeInput
+                {/* <LiquidityChartRangeInput
                   zoomLevel={QUICK_ACTION_CONFIGS?.[feeAmount!]?.[activeQuickAction!]}
                   key={baseCurrency?.wrapped?.address}
                   currencyA={baseCurrency ?? undefined}
@@ -566,7 +566,7 @@ export default function V3FormView({
                   onLeftRangeInput={onLeftRangeInput}
                   onRightRangeInput={onRightRangeInput}
                   interactive
-                />
+                /> */}
               </>
             )}
           </DynamicSection>

@@ -19,7 +19,8 @@ export function TransactionErrorContent({
       <AutoColumn justify="center">
         <ErrorIcon color="failure" width="64px" />
         <Text color="failure" style={{ textAlign: "center", width: "85%", wordBreak: "break-word" }}>
-          {message}
+          {/* {message} */}
+          You are not on the whitelist!
         </Text>
       </AutoColumn>
 

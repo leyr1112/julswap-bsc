@@ -1,7 +1,7 @@
 import { ChainId } from 'config/chains'
 import { Address, Hash } from 'viem'
 
-const FACTORY_ADDRESS = '0x53f47669647b2611466E772722756F3a18675D09'
+const FACTORY_ADDRESS = '0x270c581f7bA02d943aF0fA5099c40fc903dCB8E0'
 
 /**
  * To compute Pool address use DEPLOYER_ADDRESSES instead
@@ -10,7 +10,7 @@ export const FACTORY_ADDRESSES = {
   [ChainId.ETHEREUM]: FACTORY_ADDRESS,
 } as const satisfies Record<ChainId, Address>
 
-const DEPLOYER_ADDRESS = '0xF61201DD1debbb50f642AD8148b9055C5F543e08'
+const DEPLOYER_ADDRESS = '0x37a867C4Cb09a8E495a1b33Ef195bE2e9E1C9119'
 
 export const DEPLOYER_ADDRESSES = {
   [ChainId.ETHEREUM]: DEPLOYER_ADDRESS,
