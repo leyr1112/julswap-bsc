@@ -15,7 +15,7 @@ export const ROUTER_ADDRESS: ChainMap<string> = {
 
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
-  [ChainId.ETHEREUM]: [WNATIVE[ChainId.ETHEREUM], ethereumTokens.weth, USDC[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM], WBTC_ETH],
+  [ChainId.ETHEREUM]: [WNATIVE[ChainId.ETHEREUM], ethereumTokens.eth, USDC[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM], WBTC_ETH],
 }
 
 // used to construct intermediary pairs for trading

@@ -39,10 +39,10 @@ export const DAI_ETH = new ERC20Token(
 
 export const WBTC_ETH = new ERC20Token(
   ChainId.ETHEREUM,
-  '0xb17D901469B9208B17d916112988A3FeD19b5cA1',
-  8,
-  'WBTC',
-  'Wrapped BTC from Ethereum',
+  '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+  18,
+  'BTCB',
+  'BTCB Token',
 )
 
 export const GTOKEN = {
