@@ -12,7 +12,7 @@ import { FarmData } from './types'
 export const getFarmFromTokenAddress = (
   farms: FarmData[],
   tokenAddress: string,
-  preferredQuoteTokensAddress: string[] = [ethereumTokens.usdc.address, ethereumTokens.weth.address],
+  preferredQuoteTokensAddress: string[] = [ethereumTokens.usdc.address, ethereumTokens.eth.address],
 ): FarmData => {
   const farmsWithToken = farms.filter((farm) => equalsIgnoreCase(farm.token.address, tokenAddress))
   const filteredFarm = farmsWithToken.find((farm) => {
