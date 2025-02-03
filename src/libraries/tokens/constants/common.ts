@@ -3,24 +3,25 @@ import { ERC20Token } from 'libraries/swap-sdk'
 
 export const GTOKEN_ETH = new ERC20Token(
   ChainId.ETHEREUM,
-  '0x4793405c2231D8646F8ee79E120c230c574b0c4B',
+  '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
   18,
-  'NOI',
-  'NOI Token',
-  'https://julswap.com/',
+  'CAKE',
+  'PancakeSwap Token',
+  'https://pancakeswap.finance/',
 )
 
 export const USDC_ETH = new ERC20Token(
   ChainId.ETHEREUM,
-  '0x15D38573d2feeb82e7ad5187aB8c1D52810B1f07',
-  6,
+  '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
+  18,
   'USDC',
-  'USD Coin from Ethereum',
+  'Binance-Peg USD Coin',
+  'https://www.centre.io/usdc',
 )
 
 export const USDT_ETH = new ERC20Token(
   ChainId.ETHEREUM,
-  '0x337610d27c682E347C9cD60BD4b3b107C9d34dDd',
+  '0x55d398326f99059fF775485246999027B3197955',
   18,
   'USDT',
   'Tether USD from Ethereum',

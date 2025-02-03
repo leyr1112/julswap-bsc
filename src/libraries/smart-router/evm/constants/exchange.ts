@@ -10,7 +10,7 @@ import {
 import { ChainMap, ChainTokenList } from '../types'
 
 export const SMART_ROUTER_ADDRESSES = {
-  [ChainId.ETHEREUM]: '0xFbFc8F1669a9EfF06809F972238a6Af7025C7f2e',
+  [ChainId.ETHEREUM]: '0x8B9A879967ABBC59716A98afca894812892Bf3e2',
 } as const satisfies Record<ChainId, string>
 
 export const V2_ROUTER_ADDRESS: ChainMap<string> = {
